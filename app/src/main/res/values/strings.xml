@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AlarmClock</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+   <string name="timer_tab">Timer</string>
+    <string name="stop_watch_tab">StopWatch</string>
+    <string name="alarm_tab">Alarm</string>
+    <string name="tab_timer">Timer</string>
+    <string name="tab_stopwatch">Stopwatch</string>
+    <string name="tab_alarm">Alarm</string>
+    <string name="lap">Lap</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

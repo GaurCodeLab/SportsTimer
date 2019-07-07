@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/circular_ring"
+    tools:context=".StopWatch">
+
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="228dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="146dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="512dp"
+        android:scrollbarStyle="outsideOverlay"
+        >
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/Lap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="423dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="262dp"
+        android:gravity="center"
+        android:text="@string/lap"
+        android:textColor="#ffff"
+        android:clickable="true"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/time_text"
+        android:layout_width="137dp"
+        android:textColor="@color/colorAccent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="325dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="339dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="50sp"
+        tools:text="10:00" />
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_reset"
+        android:layout_width="57dp"
+        android:layout_height="156dp"
+        android:layout_alignTop="@+id/fab_play"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="109dp"
+        android:layout_toEndOf="@+id/fab_pause"
+        app:srcCompat="@drawable/ic_reset" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="109dp"
+        android:layout_toEndOf="@+id/fab_play"
+        app:srcCompat="@drawable/ic_pause_white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_play"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="67dp"
+        android:layout_marginBottom="109dp"
+        app:srcCompat="@drawable/ic_play_white" />
+
+   <!-- <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:id="@+id/progress-bar"
+        style="@style/Widget.MaterialProgressBar.ProgressBar"
+        android:minWidth="306dp"
+        android:minHeight="306dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="235dp" />-->
+
+</RelativeLayout>
