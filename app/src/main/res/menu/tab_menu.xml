@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@drawable/ic_hourglass"
+        android:icon="@drawable/timer_sand"
         android:id="@+id/nav_timer"
         android:title="@string/tab_timer"
         />
     <item
-        android:icon="@drawable/ic_stopwatch_blue"
+        android:icon="@drawable/timer"
         android:id="@+id/nav_stopwatch"
         android:title="@string/tab_stopwatch" />
     <item

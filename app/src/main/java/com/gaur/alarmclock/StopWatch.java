@@ -90,7 +90,7 @@ public class StopWatch extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.fab_pause:
-                onClickpause();
+                onClickPause();
                 break;
 
             case R.id.fab_reset:
@@ -99,7 +99,7 @@ public class StopWatch extends Fragment implements View.OnClickListener {
 
             case R.id.Lap:
 
-                onClickLap(time_view);
+                onClickLap();
         }
     }
 
@@ -131,7 +131,7 @@ public class StopWatch extends Fragment implements View.OnClickListener {
     }
 
 
-    public void onClickpause() {
+    public void onClickPause() {
 
         TimeBuff += MillisecondTime;
 
@@ -142,7 +142,7 @@ public class StopWatch extends Fragment implements View.OnClickListener {
 
     }
 
-    public void onClickLap(View view){
+    public void onClickLap(){
         //    final TextView  time_view = view.findViewById(R.id.time_text);
         ListElementsArrayList.add(time_view.getText().toString());
 
@@ -152,7 +152,7 @@ public class StopWatch extends Fragment implements View.OnClickListener {
 
     public Runnable runnable = new Runnable() {
 
-        View view ;
+       // View view ;
      //   final TextView  time_view = view.findViewById(R.id.time_text);
         public void run() {
 

@@ -63,7 +63,7 @@
         android:layout_marginBottom="339dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="50sp"
-        tools:text="10:00" />
+        tools:text="00:00" />
 
 
 
