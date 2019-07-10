@@ -1,49 +1,47 @@
 package com.gaur.alarmclock;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.view.menu.ActionMenuItem;
+
+import androidx.appcompat.widget.ShareActionProvider;
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-//import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.tabs.TabLayout;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
-
-//import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 public class MainActivity extends AppCompatActivity {
 
-private int[] imageResId={
-    R.drawable.ic_timer,
-    R.drawable.ic_stop_watch,
-    R.drawable.ic_alarm_black_24dp
 
-    };
+    Toolbar toolbar;
+    private ShareActionProvider shareActionProvider;
+    private long backPressedTime;
+    private AdView mAdView;
+
+
     private int[] navLabels = {
             R.string.timer_tab,
             R.string.stop_watch_tab,
             R.string.alarm_tab
-    };
-
-    private int[] active_icon={
-            R.drawable.ic_timer_red,
-            R.drawable.ic_stop_watch_red,
-            R.drawable.ic_alarm_red
     };
 
     MenuItem prevMenuItem;
@@ -52,6 +50,7 @@ private int[] imageResId={
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         SectionPagerAdapter pagerAdapter = new SectionPagerAdapter(getSupportFragmentManager());
@@ -59,8 +58,21 @@ private int[] imageResId={
         pager.setAdapter(pagerAdapter);
 
         final BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(navListner);
-      //  getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Timer()).commit();
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -73,9 +85,6 @@ private int[] imageResId={
                     case R.id.nav_stopwatch:
                         pager.setCurrentItem(1);
                         break;
-
-                    case R.id.nav_alarm:
-                        pager.setCurrentItem(2);
 
                 }
                 return false;
@@ -110,28 +119,62 @@ private int[] imageResId={
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_menu, menu);
 
-    private class SectionPagerAdapter extends FragmentPagerAdapter{
+        MenuItem menuItem = menu.findItem((R.id.action_share));
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+        setShareActionIntent("Download this amazing three in one productivity app it includes Alarm, Countdown and a stopwatch");
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        public SectionPagerAdapter(FragmentManager fm){
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem menuItem){
+//
+//        switch(menuItem.getItemId()){
+//
+//            case R.id.acction_remove_ads:
+//                return false;
+//
+//
+//                default:
+//                    return super.onCreateOptionsMenu((Menu) menuItem);
+//        }
+//    }
+
+    private void setShareActionIntent(String text) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        shareActionProvider.setShareIntent(intent);
+    }
+
+
+    private class SectionPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
-        public int getCount(){
-            return 3;
+        public int getCount() {
+            return 2;
         }
 
         @Override
 
-        public Fragment getItem(int position){
-            switch (position){
+        public Fragment getItem(int position) {
+            switch (position) {
 
-                case 0: return new Timer();
+                case 0:
+                    return new Timer();
 
-                case 1:  return new StopWatch();
+                case 1:
+                    return new StopWatch();
 
-                case 2: return new Alarm();
+
 
             }
 
@@ -140,26 +183,39 @@ private int[] imageResId={
         }
 
 
+        @Override
 
-//        @Override
-//
-//        public  CharSequence getPageTitle(int position){
-//
-//            switch (position){
-//
-//                case 0: return getResources().getText(navLabels[0]);
-//                case 1: return getResources().getText(navLabels[1]);
-//                case 2: return getResources().getText(navLabels[2]);
-//
-//            }
-//
-//            return null;
-//        }
+        public CharSequence getPageTitle(int position) {
 
+            switch (position) {
 
+                case 0:
+                    return getResources().getText(navLabels[0]);
+                case 1:
+                    return getResources().getText(navLabels[1]);
+                case 2:
+                    return getResources().getText(navLabels[2]);
+
+            }
+
+            return null;
+        }
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finishAffinity();
+        } else {
+            Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
+    }
+
+
 
 
 }

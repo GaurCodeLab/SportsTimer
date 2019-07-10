@@ -3,6 +3,7 @@ package com.gaur.alarmclock;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -31,14 +32,13 @@ public class Timer extends Fragment implements View.OnClickListener {
     private TextView Set;
     private FloatingActionButton StartPause;
     private FloatingActionButton Reset;
-
+    private FloatingActionButton Stop;
     private CountDownTimer countDownTimer;
-
     private boolean TimerRunning;
-
     private long StartTimeInMillis;
     private long TimeLeftInMillis;
     private long EndTime;
+     MediaPlayer mpAudio;
 
 
     @Override
@@ -56,6 +56,11 @@ public class Timer extends Fragment implements View.OnClickListener {
         StartPause.setOnClickListener(this);
         Reset = layout.findViewById(R.id.reset);
         Reset.setOnClickListener(this);
+        Stop = layout.findViewById(R.id.stopsound);
+        Stop.setOnClickListener(this);
+        Stop.hide();
+        setHasOptionsMenu(true);
+
 
         return layout;
 
@@ -73,6 +78,7 @@ public class Timer extends Fragment implements View.OnClickListener {
 
     public void onClick(View v) {
 
+
         switch (v.getId()) {
 
             case R.id.startpause:
@@ -88,8 +94,12 @@ public class Timer extends Fragment implements View.OnClickListener {
                 break;
 
 
+
         }
     }
+
+
+
 
 
     public void onClickSet(){
@@ -141,17 +151,42 @@ public class Timer extends Fragment implements View.OnClickListener {
             public void onTick(long millisUntilFinished) {
                 TimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
+
             }
 
             @Override
             public void onFinish() {
                 TimerRunning = false;
                 updateWatchInterface();
+                playSound();
             }
         }.start();
 
         TimerRunning = true;
         updateWatchInterface();
+    }
+
+    public void playSound() {
+        final MediaPlayer mp = MediaPlayer.create(getActivity().getBaseContext(), (R.raw.timer_end));
+
+
+        mp.start();
+        if (mp.isPlaying()){
+
+            Stop.show();
+            Stop.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mp.stop();
+                }
+            });
+        }
+        else {
+            Stop.hide();
+        }
+
+
+
     }
 
     private void pauseTimer() {

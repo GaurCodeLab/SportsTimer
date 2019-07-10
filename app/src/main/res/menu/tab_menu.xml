@@ -11,8 +11,5 @@
         android:icon="@drawable/timer"
         android:id="@+id/nav_stopwatch"
         android:title="@string/tab_stopwatch" />
-    <item
-        android:icon="@drawable/ic_alarm_blue"
-        android:id="@+id/nav_alarm"
-        android:title="@string/tab_alarm" />
+
 </menu>

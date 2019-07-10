@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AlarmClock</string>
+    <string name="app_name">SportsTimer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
    <string name="timer_tab">Timer</string>
@@ -9,5 +9,11 @@
     <string name="tab_stopwatch">Stopwatch</string>
     <string name="tab_alarm">Alarm</string>
     <string name="lap">Lap</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="remove_ads">Remove Ads</string>
+    <string name="share">Share</string>
+    <string name="adunit_id">ca-app-pub-1278136117905117/9209112399</string>
+
+
+
+
 </resources>
