@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:theme="@style/splash_screen_theme"
+    android:id="@+id/splash"
     tools:context=".SplashScreen">
 
 
