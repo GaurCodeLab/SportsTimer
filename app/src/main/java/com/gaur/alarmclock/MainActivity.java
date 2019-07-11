@@ -3,6 +3,7 @@ package com.gaur.alarmclock;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
+
         SectionPagerAdapter pagerAdapter = new SectionPagerAdapter(getSupportFragmentManager());
         final ViewPager pager = findViewById(R.id.pager);
         pager.setAdapter(pagerAdapter);
@@ -61,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+       // AdView adView = new AdView(this);
+
+
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -68,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mAdView = findViewById(R.id.adView);
+//        mAdView.setAdSize(AdSize.BANNER);
+//        mAdView.setAdUnitId("@string/Test_ad_unit_id");
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 

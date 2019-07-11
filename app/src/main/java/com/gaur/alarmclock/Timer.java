@@ -199,6 +199,7 @@ public class Timer extends Fragment implements View.OnClickListener {
         TimeLeftInMillis = StartTimeInMillis;
         updateCountDownText();
         updateWatchInterface();
+
     }
 
 

@@ -2,7 +2,7 @@
     <string name="app_name">SportsTimer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-   <string name="timer_tab">Timer</string>
+ <string name="timer_tab">Timer</string>
     <string name="stop_watch_tab">StopWatch</string>
     <string name="alarm_tab">Alarm</string>
     <string name="tab_timer">Timer</string>
@@ -11,9 +11,9 @@
     <string name="lap">Lap</string>
     <string name="remove_ads">Remove Ads</string>
     <string name="share">Share</string>
-    <string name="adunit_id">ca-app-pub-1278136117905117/9209112399</string>
-
-
+    <string name="ad_unit_id">ca-app-pub-1278136117905117/9209112399</string>
+    <string name="App_ID">ca-app-pub-1278136117905117~1099877457</string>
+    <string name="Test_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
 
 </resources>
