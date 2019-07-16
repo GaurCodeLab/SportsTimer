@@ -2,18 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/acction_remove_ads"
-        android:title="@string/remove_ads"
-        android:icon="@drawable/outline_mood_white_24dp"
-        android:orderInCategory="2"
-        app:showAsAction="withText"
-        />
+
 
     <item android:id="@+id/action_share"
         android:title="@string/share"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
         app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"/>
+
 
 
 

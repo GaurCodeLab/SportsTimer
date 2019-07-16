@@ -135,24 +135,12 @@ public class MainActivity extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem((R.id.action_share));
         shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-        setShareActionIntent("Download this amazing three in one productivity app it includes Alarm, Countdown and a stopwatch");
+        setShareActionIntent("Download this amazing three in one productivity app it includes Alarm, Countdown and a stopwatch https://play.google.com/store/apps/details?id=com.gaur.alarmclock");
         return super.onCreateOptionsMenu(menu);
     }
 
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem menuItem){
-//
-//        switch(menuItem.getItemId()){
-//
-//            case R.id.acction_remove_ads:
-//                return false;
-//
-//
-//                default:
-//                    return super.onCreateOptionsMenu((Menu) menuItem);
-//        }
-//    }
+
 
     private void setShareActionIntent(String text) {
         Intent intent = new Intent(Intent.ACTION_SEND);

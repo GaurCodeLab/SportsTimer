@@ -44,27 +44,25 @@
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
-
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:layout_above="@id/bottom_nav">
+        android:layout_above="@id/bottom_nav"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
 
     </androidx.viewpager.widget.ViewPager>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="397dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="645dp"
         android:layout_marginLeft="0dp"
+
+        android:layout_marginTop="645dp"
         android:layout_marginBottom="8dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/ad_unit_id"

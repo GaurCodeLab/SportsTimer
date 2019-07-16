@@ -17,6 +17,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
@@ -39,6 +44,7 @@ public class Timer extends Fragment implements View.OnClickListener {
     private long TimeLeftInMillis;
     private long EndTime;
      MediaPlayer mpAudio;
+    // private AdView mAdview;
 
 
     @Override
@@ -60,6 +66,16 @@ public class Timer extends Fragment implements View.OnClickListener {
         Stop.setOnClickListener(this);
         Stop.hide();
         setHasOptionsMenu(true);
+
+//        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
+//
+//        mAdview = layout.findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdview.loadAd(adRequest);
 
 
         return layout;
@@ -177,7 +193,9 @@ public class Timer extends Fragment implements View.OnClickListener {
             Stop.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     mp.stop();
+                    resetTimer();
                 }
             });
         }
@@ -224,24 +242,11 @@ public class Timer extends Fragment implements View.OnClickListener {
         if (TimerRunning) {
             TextInput.setVisibility(View.INVISIBLE);
             Set.setVisibility(View.INVISIBLE);
-           // Reset.setVisibility(View.INVISIBLE);
-            //StartPause.setText("Pause");
+
         } else {
             TextInput.setVisibility(View.VISIBLE);
             Set.setVisibility(View.VISIBLE);
-            //StartPause.setText("Start");
 
-//            if (TimeLeftInMillis < 1000) {
-//                StartPause.setVisibility(View.INVISIBLE);
-//            } else {
-//                StartPause.setVisibility(View.VISIBLE);
-//            }
-
-//            if (mTimeLeftInMillis < mStartTimeInMillis) {
-//                mButtonReset.setVisibility(View.VISIBLE);
-//            } else {
-//                mButtonReset.setVisibility(View.INVISIBLE);
-//            }
         }
     }
 

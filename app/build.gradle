@@ -6,8 +6,8 @@ android {
         applicationId "com.gaur.alarmclock"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.1"
+        versionCode 8
+        versionName "1.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -33,6 +33,7 @@ dependencies {
     implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
     implementation 'com.google.android.gms:play-services-ads:18.1.0'
     implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.android.billingclient:billing:2.0.1'
 
 
 }
