@@ -1,19 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:id="@+id/home_layout"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
 
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:id="@+id/home_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_nav"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                app:adSize="BANNER"
+                app:adUnitId="@string/ad_unit_id">
+
+            </com.google.android.gms.ads.AdView>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/colorPrimary"
+                app:itemIconTint="@color/nav_icon"
+                app:itemTextColor="@color/nav_icon"
+                app:menu="@menu/tab_menu">
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </LinearLayout>
+
 
 
         <androidx.appcompat.widget.Toolbar
@@ -21,61 +85,13 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_anchor="@+id/appBarLayout"
+            app:layout_anchorGravity="center">
 
         </androidx.appcompat.widget.Toolbar>
 
 
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:id="@+id/bottom_nav"
-        app:menu="@menu/tab_menu"
-        app:itemIconTint="@color/nav_icon"
-        app:itemTextColor="@color/nav_icon"
-        android:background="@color/colorPrimary"
-        >
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottom_nav"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-
-    </androidx.viewpager.widget.ViewPager>
-
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="397dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="0dp"
-
-        android:layout_marginTop="645dp"
-        android:layout_marginBottom="8dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/ad_unit_id"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintHorizontal_bias="0.494"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toTopOf="parent"
-        ads:layout_constraintVertical_bias="0.906">
-
-    </com.google.android.gms.ads.AdView>
-
-
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
